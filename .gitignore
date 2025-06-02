@@ -1,0 +1,31 @@
+# Virtual environment
+Custom_Model_Trainer/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.so
+
+# C extensions
+*.egg-info/
+.coverage
+.tox/
+
+# Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# pytest cache
+.pytest_cache/
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
