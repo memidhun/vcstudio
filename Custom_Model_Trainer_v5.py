@@ -910,31 +910,28 @@ class ExportThread(QThread):
 
 
 # --- Main Application Window ---
-class ModernYoloGUI(QMainWindow):
-    # Store the app version
-    APP_VERSION = "1.1.2"  # Updated version number
-
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("VisionCraft Studio - YOLOv8 GUI")
         self.setGeometry(100, 100, 1200, 800)
 
-        # Initialize core attributes first
-        self.current_theme = THEME_LIGHT
-        self.log_console = None
+        # Initialize attributes that log() might use, before initUI()
+        self.log_console = None # Will be QTextEdit
         self.status_bar = QStatusBar()
         self.setStatusBar(self.status_bar)
-        self.status_bar.showMessage("Initializing VisionCraft Studio...")
+        self.status_bar.showMessage("Initializing VisionCraft Studio...") # Initial message
 
-        # Thread management
+        self.current_theme = THEME_LIGHT
         self.inference_thread = None
         self.train_thread = None
         self.data_prep_thread = None
         self.export_thread = None
         self.dependency_install_thread = None
         self.install_ultralytics_thread = None
-
-        # Initialize UI elements to None (will be created in respective methods)
+        
+        # Other UI elements that will be initialized in their respective create_..._tab methods
+        # or initUI. Setting to None initially for clarity.
         self.model_path_input = None
         self.confidence_slider = None
         self.resolution_combo = None
@@ -961,45 +958,29 @@ class ModernYoloGUI(QMainWindow):
         self.export_status_label = None
         self.nav_buttons = {}
 
-        # Initialize UI
-        self.initUI()
+        self.initUI() # This will now safely use self.log()
         self.update_theme(THEME_LIGHT)
         self.check_ultralytics_installation()
 
+
     def initUI(self):
-        # Create main widget and layout
         main_widget = QWidget()
         self.setCentralWidget(main_widget)
         self.overall_layout = QHBoxLayout(main_widget)
 
-        # Initialize console early
-        self.init_console()
-
-        # Create navigation and content areas
-        self.create_navigation_bar()
-        self.create_content_area()
-
-        # Create pages
-        self.create_pages()
-
-        # Add console toggle to status bar
-        self.add_console_toggle()
-
-        self.log("Application UI initialized.")
-
-    def init_console(self):
-        """Initialize the console log group and text edit."""
+        # --- Initialize Log Console Group and QTextEdit EARLY ---
+        # This ensures self.log_console is available when tabs are created.
         self.log_console_group = QGroupBox("Console Log")
-        console_layout = QVBoxLayout(self.log_console_group)
-        self.log_console = QTextEdit()
+        console_layout_for_group = QVBoxLayout(self.log_console_group) # Use a different name to avoid conflict
+        self.log_console = QTextEdit() # QTextEdit for logging is created here
         self.log_console.setReadOnly(True)
         self.log_console.setFont(QFont("Courier", 9))
-        console_layout.addWidget(self.log_console)
+        console_layout_for_group.addWidget(self.log_console)
         self.log_console_group.setFixedHeight(150)
         self.log_console_group.setVisible(True)
+        # self.log_console is now an object and self.log() can be called.
 
-    def create_navigation_bar(self):
-        """Create the navigation bar on the left side."""
+        # --- Navigation Panel ---
         self.nav_panel = QFrame()
         self.nav_panel.setFixedWidth(200)
         self.nav_panel.setObjectName("navPanel")
@@ -1008,32 +989,35 @@ class ModernYoloGUI(QMainWindow):
         nav_layout.setSpacing(5)
         self.overall_layout.addWidget(self.nav_panel)
 
-    def create_content_area(self):
-        """Create the main content area with stacked widget and console."""
+        # --- Content Area (Stack + Console) ---
+        # This widget will hold both the QStackedWidget and the QGroupBox for the console.
         content_area_widget = QWidget()
         content_and_console_layout = QVBoxLayout(content_area_widget)
-        content_and_console_layout.setContentsMargins(0, 0, 0, 0)
+        content_and_console_layout.setContentsMargins(0,0,0,0) # No extra margins
 
+        # --- Content Stack (where different pages go) ---
         self.content_stack = QStackedWidget()
-        content_and_console_layout.addWidget(self.content_stack)
+        content_and_console_layout.addWidget(self.content_stack) # Add stack first
+
+        # --- Add Log Console Group (already created) below the stack ---
         content_and_console_layout.addWidget(self.log_console_group)
 
-        self.overall_layout.addWidget(content_area_widget)
+        self.overall_layout.addWidget(content_area_widget) # Add the combined widget to main layout
 
-    def create_pages(self):
-        """Create all the pages and their navigation buttons."""
+        # --- Create Tabs (Pages) ---
+        # This part now happens AFTER self.log_console is initialized.
         self.tabs_config = [
             ("Home", "home.png", self.create_home_tab),
             ("Data Prep", "data.png", self.create_data_prep_tab),
             ("Train", "train.png", self.create_train_tab),
-            ("Deploy", "deploy.png", self.create_deploy_tab),
+            ("Deploy", "deploy.png", self.create_deploy_tab), # This call is now safe
             ("Export", "export.png", self.create_export_tab),
             ("Settings", "settings.png", self.create_settings_tab),
             ("About", "about.png", self.create_about_tab),
         ]
 
         for i, (name, icon_name, creation_func) in enumerate(self.tabs_config):
-            page = creation_func()
+            page = creation_func() # creation_func can now safely call self.log()
             self.content_stack.addWidget(page)
             
             button = QPushButton(name)
@@ -1041,23 +1025,26 @@ class ModernYoloGUI(QMainWindow):
             button.setCheckable(True)
             button.setFixedHeight(40)
             button.clicked.connect(lambda checked, index=i: self.content_stack.setCurrentIndex(index))
-            self.nav_panel.layout().addWidget(button)
+            nav_layout.addWidget(button)
             self.nav_buttons[name] = button
 
         if self.nav_buttons:
             first_button_name = self.tabs_config[0][0]
             self.nav_buttons[first_button_name].setChecked(True)
             self.content_stack.setCurrentIndex(0)
-
-    def add_console_toggle(self):
-        """Add console toggle button to status bar."""
+        
+        # Add console toggle button to status bar
         self.toggle_console_button = QPushButton("Toggle Console")
         self.toggle_console_button.setCheckable(True)
-        self.toggle_console_button.setChecked(True)
+        self.toggle_console_button.setChecked(True) 
         self.toggle_console_button.setToolTip("Show/Hide Console Log")
         self.toggle_console_button.clicked.connect(self.toggle_console_visibility)
         self.toggle_console_button.setStyleSheet("padding: 3px 7px; font-size: 9pt;")
+        # self.status_bar is already initialized in __init__
         self.status_bar.addPermanentWidget(self.toggle_console_button)
+
+        self.log("Application UI initialized.") # This final log is also safe.
+
 
     def create_button_with_icon(self, text, icon_name, callback, parent_layout, tooltip=None):
         button = QPushButton(text)
@@ -2050,6 +2037,6 @@ if __name__ == '__main__':
                 except Exception as e:
                     print(f"Could not create dummy icon {icon_path}: {e}")
 
-    window = ModernYoloGUI()
+    window = MainWindow()
     window.show()
     sys.exit(app.exec_())

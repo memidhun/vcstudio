@@ -1,6 +1,12 @@
 # Virtual environment
+venv/
+env/
+.env/
 Custom_Model_Trainer/
 
+# Python files (excluding visioncraftstudio.py)
+*.py
+!visioncraftstudio.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -29,3 +35,7 @@ Thumbs.db
 
 # Jupyter Notebook files
 .ipynb_checkpoints/
+
+# Include specific files and folders
+!icons/
+!yolov8n.pt
