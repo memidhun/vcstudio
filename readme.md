@@ -4,7 +4,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 [![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green.svg)](https://riverbankcomputing.com/software/pyqt/)
 [![Ultralytics YOLOv8](https://img.shields.io/badge/Deep%20Learning-YOLOv8-purple.svg)](https://ultralytics.com/)
-[![Version](https://img.shields.io/badge/version-1.1.1-orange.svg)](https://github.com/your-username/vision-craft-studio) <!-- Replace with your actual version and link -->
+[![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)](https://github.com/your-username/vision-craft-studio) <!-- Replace with your actual version and link -->
 [![Issues](https://img.shields.io/github/issues/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/issues) <!-- Replace with your username/repo -->
 [![Forks](https://img.shields.io/github/forks/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/network/members) <!-- Replace with your username/repo -->
 [![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/stargazers) <!-- Replace with your username/repo -->
