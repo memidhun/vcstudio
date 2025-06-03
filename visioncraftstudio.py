@@ -636,7 +636,7 @@ class ExportThread(QThread):
 
 # --- Main Application Window ---
 class ModernYoloGUI(QMainWindow):
-    APP_VERSION = "1.1.1" # Incremented version
+    APP_VERSION = "0.1.0" # Incremented version
 
     def __init__(self):
         super().__init__()
@@ -700,8 +700,8 @@ class ModernYoloGUI(QMainWindow):
             "icon_button_hover_bg": "#6272a4",
             "icon_button_pressed_bg": "#44475a",
         }
-        self.current_theme = "light" # Default theme
-        self.current_palette_colors = self.light_palette # Initialize with light
+        self.current_theme = "dark" # Changed from "light" to "dark"
+        self.current_palette_colors = self.dracula_palette # Initialize with dark theme
 
 
         self.setWindowTitle(f"VisionCraft Studio v{self.APP_VERSION}")
@@ -938,7 +938,7 @@ class ModernYoloGUI(QMainWindow):
         content_layout.addWidget(title)
 
         intro_html = f"""
-        <p style='font-size: 12pt;'>Your integrated environment for YOLOv8 model development (v{self.APP_VERSION}).</p>
+        <p style='font-size: 12pt;'>Your integrated environment for YOLO model development (v{self.APP_VERSION}).</p>
         <p style='font-size: 11pt;'>Navigate using the tabs below:</p>
         <ul style='font-size: 11pt;'>
             <li><b>Data:</b> Prepare and manage your datasets.</li>
@@ -1211,6 +1211,7 @@ class ModernYoloGUI(QMainWindow):
         theme_layout.addWidget(QLabel("UI Theme:"))
         self.theme_combo = QComboBox()
         self.theme_combo.addItems(["Light", "Dark (Dracula)"]) 
+        self.theme_combo.setCurrentText("Dark (Dracula)") # Set dark theme as default
         self.theme_combo.currentTextChanged.connect(self.change_theme)
         theme_layout.addWidget(self.theme_combo)
         theme_group.setLayout(theme_layout)

@@ -1,0 +1,3 @@
+# config/settings.yaml
+model_save_path: models/
+default_export_format: onnx
