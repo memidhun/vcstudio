@@ -275,3 +275,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 Midhun Mathew / Project Lead : midhun.ec2125@saintgits.org
 
 Project Link: [https://github.com/memidhun/vcstudio](https://github.com/memidhun/vcstudio)
+
+## ☕ Support the Project
+
+If you find VisionCraft Studio helpful and would like to support its development, consider buying me a coffee! Your support helps maintain and improve this project.
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/memidhun)
+
+Every coffee helps fuel more features and improvements! 🚀
