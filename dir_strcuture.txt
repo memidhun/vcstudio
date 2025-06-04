@@ -1,0 +1,36 @@
+root/
+├── src/                                    # All core source code resides here
+│   ├── main.py                             # Main application entry point (e.g., initializes QApplication, main window)
+│   ├── gui/                                # GUI-related modules
+│   │   ├── __init__.py                     # Makes 'gui' a Python package
+│   │   ├── main_window.py                  # Defines your QMainWindow (VisionCraftStudioApp)
+│   │   ├── widgets.py                      # Custom PyQt5 widgets or common UI components
+│   │   ├── dialogs.py                      # Separate file for any QDialogs
+│   │   └── style.py                        # (Optional) For QSS stylesheets or UI constants
+│   ├── core/                               # Core application logic, non-UI related
+│   │   ├── __init__.py                     # Makes 'core' a Python package
+│   │   ├── utils.py                        # General utility functions (e.g., get_yolo_models, get_export_formats)
+│   │   ├── model_manager.py                # Logic for loading, training, exporting models (YOLO, Ultralytics interaction)
+│   │   ├── inference_engine.py             # Logic for running inference (webcam, media, etc.)
+│   │   └── config_manager.py               # Handles loading/saving application settings (yaml)
+│   └── data/                               # (Optional) Data processing or dataset specific logic
+│       ├── __init__.py                     # Makes 'data' a Python package
+│       └── dataset_loader.py               # Logic for loading datasets
+├── assets/                                 # All non-code assets (images, icons, configurations)
+│   ├── icons/                              # Application icons, button icons
+│   │   ├── app_icon.png
+│   │   ├── home.png
+│   │   └── ... (all your dummy_icons)
+│   └── models/                             # Pre-trained models (if distributed with app)
+│       └── yolov8n.pt                      # Example pre-trained model
+├── config/                                 # Configuration files that might be user-editable or specific to deployment
+│   └── settings.yaml                       # Application settings (e.g., initial paths, preferences)
+├── tests/                                  # (Optional but recommended) For unit and integration tests
+│   ├── test_utils.py
+│   └── test_model_manager.py
+├── .gitignore                              # Specifies intentionally untracked files to ignore
+├── requirements.txt                        # List of Python dependencies
+├── README.md                               # Project description, setup instructions, usage
+├── LICENSE                                 # Your project's license (e.g., MIT, GPL)
+├── setup.py                                # (Optional) For distribution via pip or more complex builds
+└── pyinstaller_build.spec                  # (Optional but recommended) PyInstaller spec file for controlled builds

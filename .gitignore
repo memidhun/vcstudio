@@ -1,7 +1,4 @@
 # Virtual environment
-venv/
-env/
-.env/
 Custom_Model_Trainer/
 
 # Python files (excluding visioncraftstudio.py)
@@ -39,3 +36,6 @@ Thumbs.db
 # Include specific files and folders
 !icons/
 !yolov8n.pt
+!trained_models_gui/
+!exported_models_gui/
+!yolo_gui_workspace/
