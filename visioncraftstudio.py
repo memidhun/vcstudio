@@ -1870,7 +1870,7 @@ class ModernYoloGUI(QMainWindow):
 
         # Add background image styling with theme-specific images
         light_bg_path = os.path.abspath(os.path.join("icons", "vison.png"))
-        dark_bg_path = os.path.abspath(os.path.join("icons", "vison.png"))
+        dark_bg_path = os.path.abspath(os.path.join("icons", "dark_theme_bg.jpg"))
 
         # Select the appropriate background image based on theme
         bg_path = light_bg_path if self.current_theme == "light" else dark_bg_path
@@ -1880,7 +1880,11 @@ class ModernYoloGUI(QMainWindow):
             background_image_url = bg_path.replace("\\", "/")
             background_style = f"""
                 /* Ensure the main container, the page itself, and the content overlay are transparent */
-                QWidget#backgroundContainer, QWidget#HomePage, QWidget#contentOverlay {{ background-color: transparent; }}
+                QWidget#backgroundContainer, QWidget#HomePage, QWidget#contentOverlay {{ 
+                    background-color: transparent; 
+                    margin: 0;
+                    padding: 0;
+                }}
 
                 QWidget#backgroundContainer {{
                     background-image: url({background_image_url});
