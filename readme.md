@@ -63,7 +63,7 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
 <!-- Add a few screenshots of your application -->
 <p align="center">
   <b>Main Interface (Home Page)</b><br>
-  <img src="placeholder_screenshot_home.png" alt="VisionCraft Studio Home Page" width="600"/><br><br>
+  <img src="https://i.ibb.co/8LPzdg90/vision-craft-home.png" alt="VisionCraft Studio Home Page" width="600"/><br><br>
   <b>Data Preparation Page</b><br>
   <img src="placeholder_screenshot_data.png" alt="VisionCraft Studio Data Page" width="600"/><br><br>
   <b>Training Configuration Page</b><br>
