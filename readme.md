@@ -9,10 +9,10 @@
 [![Forks](https://img.shields.io/github/forks/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/network/members) <!-- Replace with your username/repo -->
 [![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/stargazers) <!-- Replace with your username/repo -->
 
-<!-- Optional: Add a logo here -->
-<!-- <p align="center">
-  <img src="link_to_your_logo.png" alt="VisionCraft Studio Logo" width="200"/>
-</p> -->
+<!-- Banner Image -->
+<p align="center">
+  <img src="icons/banner.webp" alt="VisionCraft Studio Banner" width="100%"/>
+</p>
 
 VisionCraft Studio is a user-friendly desktop application designed to simplify the process of creating, training, and deploying custom deep learning YOLO (You Only Look Once) object detection and segmentation models. With an intuitive Graphical User Interface (GUI), users can manage datasets, train models, perform real-time inference, and export models to various formats without writing extensive code.
 
