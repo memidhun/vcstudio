@@ -1403,10 +1403,6 @@ class ModernYoloGUI(QMainWindow):
                     </li>
                 </ul>
             </div>
-            <p style='font-size: 12pt; margin: 25px 0; line-height: 1.6; color: {self.current_palette_colors["label_header_color"]};'>
-                Ensure Ultralytics is installed via the Settings page for full functionality
-            </p>
-        </div>
         """
         self.intro_text_label = QLabel()
         self.intro_text_label.setTextFormat(Qt.RichText)
@@ -1873,8 +1869,8 @@ class ModernYoloGUI(QMainWindow):
         self.current_palette_colors = p
 
         # Add background image styling with theme-specific images
-        light_bg_path = os.path.abspath(os.path.join("icons", "light_theme_bg.jpg"))
-        dark_bg_path = os.path.abspath(os.path.join("icons", "dark_theme_bg.jpg"))
+        light_bg_path = os.path.abspath(os.path.join("icons", "vison.png"))
+        dark_bg_path = os.path.abspath(os.path.join("icons", "vison.png"))
 
         # Select the appropriate background image based on theme
         bg_path = light_bg_path if self.current_theme == "light" else dark_bg_path
@@ -1891,20 +1887,20 @@ class ModernYoloGUI(QMainWindow):
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
-                    min-height: 600px;
-                    max-height: 800px;
-                    border-radius: 10px;
-                    margin: 10px;
+                    margin: 0;
+                    padding: 0;
                 }}
+
+                QWidget#HomePage {{
+                    margin: 0;
+                    padding: 0;
+                }}
+
                 QWidget#contentOverlay {{
-                    border-radius: 10px;
-                    margin: 20px;
-                    background-color: {p["window_bg"]}cc;  /* Semi-transparent background */
-                }}
-                QGroupBox#statsGroup {{
-                    background-color: {p["group_bg"]}a0;
-                    border: 1px solid {p["border_color"]};
+                    background-color: rgba(255, 255, 255, 0.1);
                     border-radius: 8px;
+                    margin: 5px;
+                    padding: 10px;
                 }}
             """
             self.log(f"Background image loaded from: {background_image_url}")
@@ -1945,7 +1941,7 @@ class ModernYoloGUI(QMainWindow):
                 border: 1px solid {p["border_color"]};
             }}
             QLabel#pageTitle {{ 
-                font-size: 24pt; 
+                font-size: 24px; 
                 font-weight: bold; 
                 color: {p["label_header_color"]}; 
                 padding: 10px;
@@ -1958,8 +1954,9 @@ class ModernYoloGUI(QMainWindow):
             }}
             QLabel#introText {{ 
                 font-size: 11pt; 
-                line-height: 1.5; 
+                line-height: 1.4;
                 color: {p["text_color"]}; 
+                margin: 10px 0;
             }}
 
             QWidget#nav_widget {{ 
@@ -2200,6 +2197,20 @@ class ModernYoloGUI(QMainWindow):
                 background-color: {p["label_header_color"]};
                 border-radius: 3px;
                 margin: 1px;
+            }}
+
+            QWidget#statContainer {{
+                padding: 8px;
+                margin: 5px;
+            }}
+
+            QLabel#statsLabel {{
+                font-size: 11pt;
+                margin: 2px 0;
+            }}
+
+            QLabel#statIcon {{
+                margin: 2px 0;
             }}
         """
         self.setStyleSheet(qss)
@@ -2880,7 +2891,10 @@ class ModernYoloGUI(QMainWindow):
             self.export_model_button.setEnabled(True)
 
     def closeEvent(self, event):
+        """Handle application close event"""
         self.log("Application closing. Stopping active threads...")
+        
+        # Stop all running threads
         threads_to_stop = [
             "inference_thread",
             "dependency_install_thread",
@@ -2910,8 +2924,30 @@ class ModernYoloGUI(QMainWindow):
                     self.log(f"{thread_attr_name} stopped.")
             setattr(self, thread_attr_name, None)  # Clear attribute
 
+        # Clean up __pycache__ directories
+        self.cleanup_pycache()
+        
         self.log("Exiting VisionCraft Studio.")
         event.accept()
+
+    def cleanup_pycache(self):
+        """Remove all __pycache__ directories in the project"""
+        import shutil
+        import glob
+        
+        # Get the project root directory
+        project_root = os.path.dirname(os.path.abspath(__file__))
+        
+        # Find all __pycache__ directories
+        pycache_dirs = glob.glob(os.path.join(project_root, "**", "__pycache__"), recursive=True)
+        
+        # Remove each __pycache__ directory
+        for pycache_dir in pycache_dirs:
+            try:
+                shutil.rmtree(pycache_dir)
+                self.log(f"Removed: {pycache_dir}")
+            except Exception as e:
+                self.log(f"Error removing {pycache_dir}: {e}")
 
     def download_selected_model(self):
         if not ULTRALYTICS_INSTALLED:
@@ -3039,7 +3075,7 @@ def create_dummy_icons_if_needed():
                 except Exception as e:
                     print(f"Could not create dummy icon {icon_file}: {e}")
 
-    generic_app_icon = os.path.join(icon_base_dir, "app_icon.png")
+    generic_app_icon = os.path.join(icon_base_dir, "\assets\icons\icon.png.jpg")
     if not os.path.exists(generic_app_icon):
         try:
             img = QImage(32, 32, QImage.Format_ARGB32)
