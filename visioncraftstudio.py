@@ -1373,33 +1373,33 @@ class ModernYoloGUI(QMainWindow):
 
         intro_html = f"""
         <div style='text-align: center; color: white;'>
-            <p style='font-size: 14pt; margin: 20px 0; line-height: 1.6; font-weight: 500; color: white;'>
+            <p style='font-size: 12pt; margin: 10px 0; line-height: 1.4; font-weight: 500; color: white;'>
                 Your integrated environment for YOLO model development (v{self.APP_VERSION})
             </p>
-            <p style='font-size: 13pt; margin: 25px 0; line-height: 1.6; color: white;'>
+            <p style='font-size: 11pt; margin: 15px 0; line-height: 1.4; color: white;'>
                 Navigate using the tabs below:
             </p>
-            <div style='text-align: left; margin: 30px auto; max-width: 600px; color: white;'>
-                <ul style='font-size: 12pt; line-height: 2.0; list-style-type: none; padding: 0; color: white;'>
-                    <li style='margin: 15px 0; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);'>
-                        <b style='font-size: 13pt; color: white;'>Data</b><br>
-                        <span style='font-size: 11pt; color: white;'>Prepare and manage your datasets</span>
+            <div style='text-align: left; margin: 15px auto; max-width: 500px; color: white;'>
+                <ul style='font-size: 11pt; line-height: 1.6; list-style-type: none; padding: 0; color: white;'>
+                    <li style='margin: 8px 0; padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);'>
+                        <b style='font-size: 12pt; color: white;'>Data</b><br>
+                        <span style='font-size: 10pt; color: white;'>Prepare and manage your datasets</span>
                     </li>
-                    <li style='margin: 15px 0; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);'>
-                        <b style='font-size: 13pt; color: white;'>Train</b><br>
-                        <span style='font-size: 11pt; color: white;'>Configure and run model training</span>
+                    <li style='margin: 8px 0; padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);'>
+                        <b style='font-size: 12pt; color: white;'>Train</b><br>
+                        <span style='font-size: 10pt; color: white;'>Configure and run model training</span>
                     </li>
-                    <li style='margin: 15px 0; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);'>
-                        <b style='font-size: 13pt; color: white;'>Deploy</b><br>
-                        <span style='font-size: 11pt; color: white;'>Test models, run live inference, and export</span>
+                    <li style='margin: 8px 0; padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);'>
+                        <b style='font-size: 12pt; color: white;'>Deploy</b><br>
+                        <span style='font-size: 10pt; color: white;'>Test models, run live inference, and export</span>
                     </li>
-                    <li style='margin: 15px 0; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);'>
-                        <b style='font-size: 13pt; color: white;'>Settings</b><br>
-                        <span style='font-size: 11pt; color: white;'>Manage configurations and dependencies</span>
+                    <li style='margin: 8px 0; padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);'>
+                        <b style='font-size: 12pt; color: white;'>Settings</b><br>
+                        <span style='font-size: 10pt; color: white;'>Manage configurations and dependencies</span>
                     </li>
-                    <li style='margin: 15px 0; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);'>
-                        <b style='font-size: 13pt; color: white;'>About</b><br>
-                        <span style='font-size: 11pt; color: white;'>Information about this application</span>
+                    <li style='margin: 8px 0; padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);'>
+                        <b style='font-size: 12pt; color: white;'>About</b><br>
+                        <span style='font-size: 10pt; color: white;'>Information about this application</span>
                     </li>
                 </ul>
             </div>
@@ -1414,11 +1414,11 @@ class ModernYoloGUI(QMainWindow):
         content_layout.addWidget(intro_container)
 
         # Stats group with improved styling
-        stats_group = QGroupBox("Quick Overview")
+        stats_group = QGroupBox("Statistics")
         stats_group.setObjectName("statsGroup")
-        stats_layout = QHBoxLayout()
-        stats_layout.setContentsMargins(30, 30, 30, 30)
-        stats_layout.setSpacing(40)
+        stats_layout = QHBoxLayout(stats_group)
+        stats_layout.setContentsMargins(10, 10, 10, 10)
+        stats_layout.setSpacing(20)
 
         # Create individual stat containers
         models_container = QWidget()
@@ -1901,34 +1901,36 @@ class ModernYoloGUI(QMainWindow):
                 QWidget#contentOverlay {{
                     background-color: rgba(0, 0, 0, 0.7);
                     border-radius: 8px;
-                    margin: 20px;
-                    padding: 20px;
+                    margin: 10px;
+                    padding: 15px;
                 }}
 
                 QLabel#pageTitle {{ 
                     color: white;
-                    font-size: 24px; 
+                    font-size: 20px; 
                     font-weight: bold; 
-                    padding: 10px;
-                    margin: 10px 0;
+                    padding: 5px;
+                    margin: 5px 0;
                 }}
 
                 QLabel#introText {{ 
                     color: white;
-                    font-size: 11pt; 
-                    line-height: 1.4;
-                    margin: 10px 0;
+                    font-size: 10pt; 
+                    line-height: 1.3;
+                    margin: 5px 0;
                 }}
 
                 QGroupBox#statsGroup {{
                     background-color: rgba(0, 0, 0, 0.5);
                     border-radius: 8px;
                     color: white;
-                    margin-top: 20px;
+                    margin-top: 10px;
+                    padding: 5px;
                 }}
 
                 QLabel#statsLabel {{
                     color: white;
+                    font-size: 10pt;
                 }}
 
                 QLabel#statIcon {{
@@ -1937,6 +1939,7 @@ class ModernYoloGUI(QMainWindow):
 
                 QGroupBox#statsGroup::title {{
                     color: white;
+                    font-size: 10pt;
                 }}
             """
             self.log(f"Background image loaded from: {background_image_url}")
