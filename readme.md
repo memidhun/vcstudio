@@ -46,12 +46,6 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
     * Integrated console log for monitoring processes.
     * Clear status updates and progress bars.
 
-## 🌐 Try It Online!
-
-Experience VisionCraft Studio's interface right in your browser! Visit our web demo to explore the UI and features:
-
-[![Web Demo](https://img.shields.io/badge/Web%20Demo-Try%20Now-blue?style=for-the-badge)](https://memidhun.github.io/vcstudio/)
-
 ## 🎬 Demo
 
 <!-- Replace with a GIF or link to a video showcasing the application -->
@@ -63,6 +57,14 @@ Experience VisionCraft Studio's interface right in your browser! Visit our web d
 <!-- <p align="center">
   <img src="link_to_your_demo.gif" alt="VisionCraft Studio Demo GIF" width="700"/>
 </p> -->
+
+## 🌐 View Online!
+
+Experience VisionCraft Studio's interface right in your browser! Visit the web demo to explore the UI and features:
+
+[![Web Demo](https://img.shields.io/badge/Web%20Demo-Try%20Now-blue?style=for-the-badge)](https://memidhun.github.io/vcstudio/)
+
+*Note: This is a static UI demo showcasing the application's interface. To work with actual datasets, train models, and perform real-time inference, please download and install the full desktop application.*
 
 ## 📸 Screenshots
 
