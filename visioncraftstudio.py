@@ -1092,7 +1092,7 @@ class ModernYoloGUI(QMainWindow):
             "nav_button_checked_bg": "#6272a4",
             "nav_button_text": "#f8f8f2",
             "text_color": "#f8f8f2",
-            "label_header_color": "#8be9fd",
+            "label_header_color": "#007AFF",
             "border_color": "#44475a",
             "group_bg": "#353746",
             "button_bg": "#44475a",
@@ -1359,9 +1359,10 @@ class ModernYoloGUI(QMainWindow):
         content_layout.addSpacing(20)
 
         # Title with improved styling
-        title = QLabel("Welcome to VisionCraft Studio")
+        title = QLabel("WELCOME TO VISION<span style='color: #AFFE91;'>CRAFT</span> STUDIO")
         title.setObjectName("pageTitle")
         title.setAlignment(Qt.AlignCenter)
+        title.setStyleSheet("font-size: 36px; font-weight: bold;")
         content_layout.addWidget(title)
 
         # Create a container for the intro text with glass effect
@@ -1907,10 +1908,11 @@ class ModernYoloGUI(QMainWindow):
 
                 QLabel#pageTitle {{ 
                     color: white;
-                    font-size: 20px; 
+                    font-size: 28px; 
                     font-weight: bold; 
                     padding: 5px;
                     margin: 5px 0;
+                    letter-spacing: 1px;
                 }}
 
                 QLabel#introText {{ 
