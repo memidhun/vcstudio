@@ -3,11 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 [![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green.svg)](https://riverbankcomputing.com/software/pyqt/)
-[![Ultralytics YOLOv8](https://img.shields.io/badge/Deep%20Learning-YOLOv8-purple.svg)](https://ultralytics.com/)
-[![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)](https://github.com/your-username/vision-craft-studio) <!-- Replace with your actual version and link -->
-[![Issues](https://img.shields.io/github/issues/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/issues) <!-- Replace with your username/repo -->
-[![Forks](https://img.shields.io/github/forks/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/network/members) <!-- Replace with your username/repo -->
-[![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/your-username/vision-craft-studio/stargazers) <!-- Replace with your username/repo -->
+[![Ultralytics YOLO](https://img.shields.io/badge/Deep%20Learning-YOLO-purple.svg)](https://ultralytics.com/)
+[![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)](https://github.com/memidhun/vcstudio) 
+[![Issues](https://img.shields.io/github/issues/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/issues)
+[![Forks](https://img.shields.io/github/forks/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/network/members) <!-- Replace with your username/repo -->
+[![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/stargazers) <!-- Replace with your username/repo -->
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmemidhun%2Fvcstudio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 <!-- Banner Image -->
 <p align="center">
@@ -73,15 +74,14 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
   <b>Light Theme Example</b><br>
   <img src="icons/Demo/white.png" alt="VisionCraft Studio Dark Theme" width="600"/>
 </p>
-*Note: Replace `placeholder_screenshot_*.png` with actual links to your screenshots.*
 
 ## 🛠️ Tech Stack
 
 * **Python:** Core programming language.
 * **PyQt5:** For the Graphical User Interface.
-* **Ultralytics YOLOv8:** For object detection and segmentation model training and inference.
+* **Ultralytics :** For object detection and segmentation model training and inference.
 * **OpenCV (cv2):** For image and video processing.
-* **PyTorch:** Underlying framework for YOLOv8.
+* **PyTorch:** Underlying framework for YOLO.
 * **YAML:** For configuration files.
 * **NumPy:** For numerical operations.
 
