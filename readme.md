@@ -63,15 +63,15 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
 <!-- Add a few screenshots of your application -->
 <p align="center">
   <b>Main Interface (Home Page)</b><br>
-  <img src="assets/icons/bg.jpg" alt="VisionCraft Studio Home Page" width="600"/><br><br>
+  <img src="icons/content.png" alt="VisionCraft Studio Home Page" width="600"/><br><br>
   <b>Data Preparation Page</b><br>
-  <img src="placeholder_screenshot_data.png" alt="VisionCraft Studio Data Page" width="600"/><br><br>
+  <img src="icons/Demo/Data.png" alt="VisionCraft Studio Data Page" width="600"/><br><br>
   <b>Training Configuration Page</b><br>
-  <img src="placeholder_screenshot_train.png" alt="VisionCraft Studio Train Page" width="600"/><br><br>
+  <img src="icons/Demo/Train.png" alt="VisionCraft Studio Train Page" width="600"/><br><br>
   <b>Deployment & Live Inference Page</b><br>
-  <img src="placeholder_screenshot_deploy.png" alt="VisionCraft Studio Deploy Page" width="600"/><br><br>
-  <b>Dark Theme Example</b><br>
-  <img src="placeholder_screenshot_dark_theme.png" alt="VisionCraft Studio Dark Theme" width="600"/>
+  <img src="icons/Demo/Deploy1.png" alt="VisionCraft Studio Deploy Page" width="600"/><br><br>
+  <b>Light Theme Example</b><br>
+  <img src="icons/Demo/white.png" alt="VisionCraft Studio Dark Theme" width="600"/>
 </p>
 *Note: Replace `placeholder_screenshot_*.png` with actual links to your screenshots.*
 
