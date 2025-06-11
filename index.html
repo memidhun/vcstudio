@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionCraft Studio - Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="light-theme">
+
+    <div id="start-screen">
+        <div class="start-content">
+            <h1 class="hero-title"><span class="vision">VISION</span><span class="craft">CRAFT</span> <span class="studio">STUDIO</span></h1>
+            <p class="hero-subtitle">Your integrated environment for streamlined YOLO model development.</p>
+            <button id="launch-button" class="button-primary"><i class="fas fa-rocket"></i> Launch Application</button>
+        </div>
+    </div>
+
+    <div id="app-container">
+        <main id="main-content">
+            <div id="home-page" class="page active">
+                <div class="hero-section">
+                    <h1 class="hero-title"><span class="vision">VISION</span><span class="craft">CRAFT</span> <span class="studio">STUDIO</span></h1>
+                    <p class="hero-subtitle">Your integrated environment for streamlined YOLO model development.</p>
+                    <div class="stats-group">
+                        <div class="stat-container">
+                            <i class="fa-solid fa-brain stat-icon"></i>
+                            <span class="stats-label">Models Trained: 0</span>
+                        </div>
+                        <div class="stat-container">
+                            <i class="fa-solid fa-database stat-icon"></i>
+                            <span class="stats-label">Datasets Prepared: 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="data-page" class="page">
+                 <div class="module">
+                    <h2 class="module-title">Dataset Preparation</h2>
+                    <p class="info-label" id="data-zip-label">No dataset (.zip) selected.</p>
+                    <button class="button-primary"><i class="fas fa-file-zipper"></i> Load Custom Dataset (.zip)</button>
+                    <label class="status-label">Status: Waiting for dataset...</label>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <p class="info-label-secondary">Data YAML: Not generated yet.</p>
+                </div>
+            </div>
+
+            <div id="train-page" class="page">
+                <div class="module">
+                    <h2 class="module-title">1. Model Selection</h2>
+                    <label for="train-model-combo">Base YOLO Model:</label>
+                    <select id="train-model-combo">
+                        <option>yolov8n.pt</option><option selected>yolov8s.pt</option><option>yolov8m.pt</option><option>yolov9c.pt</option><option>yolov9e.pt</option>
+                    </select>
+                     <button class="button-secondary"><i class="fas fa-download"></i> Download Selected Model</button>
+                </div>
+                <div class="module">
+                    <h2 class="module-title">2. Training Parameters</h2>
+                    <div class="form-grid">
+                        <label for="epochs-spinbox">Epochs</label>
+                        <input type="number" id="epochs-spinbox" value="25" min="1" max="1000">
+                        <label for="imgsz-spinbox">Image Size (px)</label>
+                        <input type="number" id="imgsz-spinbox" value="640" step="32">
+                        <label for="project-name-input">Project Name</label>
+                        <input type="text" id="project-name-input" value="yolo_gui_runs">
+                    </div>
+                </div>
+                 <div class="module">
+                    <h2 class="module-title">3. Start Training</h2>
+                    <button id="train-button" class="button-primary" disabled><i class="fas fa-play-circle"></i> Start Training</button>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="load-after-train-check" checked>
+                        <label for="load-after-train-check">Load model in Deploy tab after training</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="deploy-page" class="page">
+                <div class="deploy-grid">
+                    <div class="deploy-main">
+                        <div class="module">
+                            <h2 class="module-title">Live Inference</h2>
+                             <div id="video-feed-container">
+                                <video id="webcam-feed" autoplay playsinline></video>
+                                <canvas id="output-canvas"></canvas>
+                            </div>
+                            <div class="video-stats">
+                                <span id="fps-label">FPS: --</span>
+                                <span id="objects-label">Objects: --</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deploy-sidebar">
+                        <div class="module">
+                            <h2 class="module-title">1. Load Model</h2>
+                            <button class="button-secondary"><i class="fas fa-folder-open"></i> Load Model File</button>
+                        </div>
+                         <div class="module">
+                            <h2 class="module-title">2. Controls</h2>
+                            <label>Webcam:</label>
+                            <select id="webcam-combo"><option>Webcam 0</option><option>Webcam 1</option></select>
+                            <label>Resolution:</label>
+                            <select id="resolution-combo"><option>640x480</option><option>1280x720 (HD)</option></select>
+                            <button id="start-webcam-button" class="button-secondary"><i class="fas fa-camera"></i> Start Webcam</button>
+                        </div>
+                        <div class="module">
+                            <h2 class="module-title">3. Export Model</h2>
+                             <label>Export Format:</label>
+                             <select id="export-format-combo"><option>onnx</option><option>torchscript</option></select>
+                            <button class="button-secondary"><i class="fas fa-cogs"></i> Convert & Export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-page" class="page">
+                <div class="module">
+                    <h2 class="module-title">Appearance</h2>
+                    <div class="settings-item">
+                        <span>UI Theme</span>
+                        <select id="theme-combo">
+                            <option value="light-theme" selected>Light</option>
+                            <option value="dark-theme">Dark</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="module">
+                    <h2 class="module-title">Dependencies</h2>
+                     <div class="settings-item">
+                        <span>Ultralytics Status</span>
+                        <span class="status-badge error">Not Installed ❌</span>
+                    </div>
+                    <button class="button-secondary"><i class="fa-solid fa-box"></i> Install Ultralytics</button>
+                </div>
+                 <div class="module">
+                    <h2 class="module-title">Configuration</h2>
+                    <label for="device-combo">Default Compute Device:</label>
+                    <select id="device-combo"><option>cpu</option><option selected>cuda:0 (NVIDIA RTX 4090)</option></select>
+                </div>
+            </div>
+
+             <div id="about-page" class="page">
+                 <div class="about-container">
+                    <h1 class="hero-title">VisionCraft Studio</h1>
+                    <p class="version-label">Version 0.2.0</p>
+                    <p class="made-with-label">Made with <i class="fas fa-heart"></i> by Midhun Mathew</p>
+                    <p class="description">
+                        This application is an integrated environment designed to simplify the workflow of training and deploying YOLO object detection models.
+                    </p>
+                    <div class="links">
+                        <a href="https://coff.ee/memidhun" target="_blank" class="button-secondary">Support the Developer</a>
+                        <a href="https://www.linkedin.com/in/midhunmathew2002/" target="_blank" class="button-secondary">Connect on LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="console-area">
+            <div class="console-header">
+                <h3>Console Log</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="console-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="console-log-text">
+                <p><span class="timestamp">[12:59:27]</span><span>VisionCraft Studio v0.2.0 started.</span></p>
+                <p><span class="timestamp">[12:59:27]</span><span class="log-error">Ultralytics library is not detected. Please install it via the Settings page.</span></p>
+            </div>
+        </div>
+
+        <nav id="nav-bar">
+            <button class="nav-button active" data-page="home-page" title="Home"><i class="fas fa-home"></i><span>Home</span></button>
+            <button class="nav-button" data-page="data-page" title="Data"><i class="fas fa-database"></i><span>Data</span></button>
+            <button class="nav-button" data-page="train-page" title="Train"><i class="fas fa-brain"></i><span>Train</span></button>
+            <button class="nav-button" data-page="deploy-page" title="Deploy"><i class="fas fa-rocket"></i><span>Deploy</span></button>
+            <button class="nav-button" data-page="settings-page" title="Settings"><i class="fas fa-cog"></i><span>Settings</span></button>
+            <button class="nav-button" data-page="about-page" title="About"><i class="fas fa-info-circle"></i><span>About</span></button>
+        </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
