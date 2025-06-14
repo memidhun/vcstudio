@@ -1,5 +1,5 @@
 # Virtual environment
-Custom_Model_Trainer/
+# Removed: Custom_Model_Trainer/ (assuming it refers to the project root, which shouldn't be ignored)
 
 # Python files (excluding visioncraftstudio.py)
 *.py
@@ -33,9 +33,20 @@ Thumbs.db
 # Jupyter Notebook files
 .ipynb_checkpoints/
 
-# Include specific files and folders
-!icons/
-!yolov8n.pt
-!trained_models_gui/
-!exported_models_gui/
-!yolo_gui_workspace/
+# Project-specific files and folders to ignore:
+.github/
+assets/
+config/
+dir_structure.txt
+yolov8n.pt
+trained_models_gui/
+exported_models_gui/
+yolo_gui_workspace/
+
+# Files/folders explicitly included in the repo (no need for '!' if not covered by other ignore rules):
+# icons/                 # Already re-included by '!icons/' if any generic folder ignore was present, but good to ensure
+# requirements.txt
+# LICENSE
+# index.html
+# script.js
+# style.css
