@@ -412,22 +412,17 @@ my_dataset.zip
 ### Project Structure
 
 ```
-vision-craft-studio/
-├── V6.py                     # Main application script
-├── icons/                    # Directory for UI icons
-│   ├── light/               # Icons for light theme
-│   │   ├── home.png
-│   │   └── ...
-│   ├── dark/                # Icons for dark theme
-│   │   ├── home.png
-│   │   └── ...
-│   └── app_icon.png         # Main application icon
-├── yolo_gui_workspace/      # Workspace for dataset processing
-│   └── dataset_processing/
-├── trained_models_gui/      # Default directory for saved trained models
-├── exported_models_gui/     # Default directory for exported/converted models
-├── README.md                # This file
-└── requirements.txt         # (Recommended) Python dependencies
+vcstudio/
+├── visioncraftstudio.py      # Main application script
+├── requirements.txt          # Python dependencies
+├── README.md                # Documentation
+├── icons/                   # UI icons directory
+│   ├── light/              # Light theme icons
+│   ├── dark/               # Dark theme icons
+│   └── Demo/               # Demo screenshots
+├── yolo_gui_workspace/     # Workspace for dataset processing
+├── trained_models_gui/     # Directory for saved trained models
+└── exported_models_gui/    # Directory for exported/converted models
 ```
 
 ## 🌊 Workflow
@@ -463,7 +458,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 📞 Contact
 
-Midhun Mathew / Project Lead : midhun.ec2125@saintgits.org
+Midhun Mathew / Project Lead : [LinkedIn Profile](https://www.linkedin.com/in/midhunmathew2002/)
 
 Project Link: [https://github.com/memidhun/vcstudio](https://github.com/memidhun/vcstudio)
 
