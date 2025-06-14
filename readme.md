@@ -104,42 +104,221 @@ The application will guide you to install `ultralytics` and other necessary mode
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/vision-craft-studio.git](https://github.com/your-username/vision-craft-studio.git)
-    cd vision-craft-studio
+    git clone https://github.com/memidhun/vcstudio.git
+    cd vcstudio
     ```
-    *(Replace `your-username/vision-craft-studio` with your actual repository URL)*
 
-2.  **Create a virtual environment (recommended):**
+2.  **Create and activate virtual environment:**
+
+    **Using venv (Recommended):**
+    
+    *Windows:*
     ```bash
+    # Create virtual environment
     python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    
+    # Activate virtual environment
+    venv\Scripts\activate
+    
+    # Verify activation (should show path to venv)
+    where python
+    ```
+
+    *Linux/macOS:*
+    ```bash
+    # Create virtual environment
+    python3 -m venv venv
+    
+    # Activate virtual environment
+    source venv/bin/activate
+    
+    # Verify activation (should show path to venv)
+    which python
+    ```
+
+    **Using Conda (Alternative):**
+    ```bash
+    # Create conda environment
+    conda create -n vcstudio python=3.10
+    
+    # Activate conda environment
+    conda activate vcstudio
+    
+    # Verify activation
+    conda info --envs
     ```
 
 3.  **Install required Python packages:**
     ```bash
     pip install -r requirements.txt
     ```
-    *(You might need to create a `requirements.txt` file. Based on `V6.py`, key packages are `PyQt5`, `opencv-python`, `torch`, `numpy`, `pyyaml`. `ultralytics` can be installed via the app or added to requirements.)*
 
-    **Example `requirements.txt`:**
+    <!-- **Required packages from `requirements.txt`:**
     ```
-    PyQt5
-    opencv-python
-    numpy
-    PyYAML
-    torch
-    torchvision 
-    torchaudio
-    ultralytics 
-    # Add other specific versions if necessary
-    ```
+    certifi==2025.4.26
+    charset-normalizer==3.4.2
+    colorama==0.4.6
+    coloredlogs==15.0.1
+    contourpy==1.3.2
+    cycler==0.12.1
+    filelock==3.18.0
+    flatbuffers==25.2.10
+    fonttools==4.58.2
+    fsspec==2025.5.1
+    humanfriendly==10.0
+    idna==3.10
+    Jinja2==3.1.6
+    kiwisolver==1.4.8
+    MarkupSafe==3.0.2
+    matplotlib==3.10.3
+    mpmath==1.3.0
+    networkx==3.5
+    numpy==2.3.0
+    onnx==1.18.0
+    onnxruntime==1.22.0
+    opencv-python==4.11.0.86
+    packaging==25.0
+    pandas==2.3.0
+    pillow==11.2.1
+    protobuf==6.31.1
+    psutil==7.0.0
+    py-cpuinfo==9.0.0
+    pyparsing==3.2.3
+    PyQt5==5.15.11
+    PyQt5-Qt5==5.15.2
+    PyQt5_sip==12.17.0
+    pyreadline3==3.5.4
+    python-dateutil==2.9.0.post0
+    pytz==2025.2
+    PyYAML==6.0.2
+    requests==2.32.4
+    scipy==1.15.3
+    six==1.17.0
+    sympy==1.14.0
+    torch==2.7.1
+    torchvision==0.22.1
+    tqdm==4.67.1
+    typing_extensions==4.14.0
+    tzdata==2025.2
+    ultralytics==8.3.153
+    ultralytics-thop==2.0.14
+    urllib3==2.4.0
+    ``` -->
 
-4.  **Ensure you have icons:**
-    The application looks for icons in an `icons/` directory (with subdirectories for `light`/`dark` themes). Make sure this directory and the necessary icons are present. The script `V6.py` includes a function `create_dummy_icons_if_needed()` which can serve as a temporary placeholder or guide for required icons.
+4.  **Dataset Preparation Methods**
 
-5.  **Run the application:**
+    There are several ways to prepare your custom dataset for object detection:
+
+    ### A. Using Label Studio (Recommended for Beginners)
+    Label Studio is a powerful tool for data labeling and annotation. Follow these steps:
+
+    **Installation:**
+    
+    *Windows:*
     ```bash
-    python V6.py
+    # Using pip
+    pip install label-studio
+    
+    # Using conda
+    conda install -c conda-forge label-studio
+    ```
+
+    *Linux/macOS:*
+    ```bash
+    # Using pip
+    pip3 install label-studio
+    
+    # Using conda
+    conda install -c conda-forge label-studio
+    ```
+
+    **Basic Usage:**
+    1. Start Label Studio:
+       ```bash
+       label-studio start
+       ```
+    2. Open your browser and go to `http://localhost:8080`
+    3. Create a new project and required select type , for example : "Object Detection with Bounding Boxes"
+    4. Import your images
+    5. Label your images with bounding boxes
+    6. Export your labels in YOLO format:
+       - Go to Export
+       - Select "YOLO" format
+       - Download the exported files
+
+    For more information about Label Studio, visit [labelstud.io](https://labelstud.io/)
+
+    ### B. Using CVAT (Computer Vision Annotation Tool)
+    CVAT is another powerful open-source tool for image annotation.
+
+    **Installation:**
+    ```bash
+    # Using Docker (recommended)
+    docker pull cvat/cvat
+    docker run -d --name cvat -p 8080:8080 cvat/cvat
+    ```
+
+    Visit [cvat.org](https://www.cvat.ai/) for more details.
+
+    ### C. Using Roboflow
+    Roboflow provides a user-friendly web interface for dataset preparation.
+
+    1. Visit [roboflow.com](https://roboflow.com)
+    2. Create an account
+    3. Create a new project
+    4. Upload your images
+    5. Label your data
+    6. Export in YOLO format
+
+    ### D. Manual Dataset Preparation
+    You can also prepare your dataset manually:
+
+    1. Organize your images in a directory
+    2. Create corresponding label files (.txt) in YOLO format
+    3. Create a classes.txt file with your class names
+    4. Split your data into train/val sets
+
+    **Dataset Structure for VisionCraft Studio:**
+    After preparing your dataset using any of the above methods, organize your files as follows:
+    ```
+    my_dataset.zip
+    ├── images/
+    │   ├── train/
+    │   │   ├── img1.jpg
+    │   │   └── ...
+    │   └── val/
+    │       ├── img2.jpg
+    │       └── ...
+    ├── labels/
+    │   ├── train/
+    │   │   ├── img1.txt
+    │   │   └── ...
+    │   ├── val/
+    │   │   ├── img2.txt
+    │   │   └── ...
+    │   └── (Or all labels directly here)
+    │       ├── img1.txt
+    │       ├── img2.txt
+    │       └── ...
+    └── classes.txt
+    ```
+
+    **YOLO Label Format:**
+    Each label file (.txt) should contain one line per object in the format:
+    ```
+    <class_id> <x_center> <y_center> <width> <height>
+    ```
+    Where:
+    - `class_id`: Index of the class (starting from 0)
+    - `x_center, y_center`: Normalized center coordinates (0-1)
+    - `width, height`: Normalized width and height (0-1)
+
+5.  **Ensure you have icons:**
+    The application looks for icons in an `icons/` directory (with subdirectories for `light`/`dark` themes). Make sure this directory and the necessary icons are present. The script `visioncraftstudio.py` includes a function `create_dummy_icons_if_needed()` which can serve as a temporary placeholder or guide for required icons.
+
+6.  **Run the application:**
+    ```bash
+    python visioncraftstudio.py
     ```
 
 ## 📖 Usage
@@ -147,31 +326,36 @@ The application will guide you to install `ultralytics` and other necessary mode
 VisionCraft Studio is organized into several tabs for a streamlined workflow:
 
 1.  **🏠 Home:** Welcome screen with an overview of the application.
+
 2.  **📊 Data:**
-    * Click "Load Custom Dataset (.zip)" to select your dataset.
-    * The dataset should be a zip file containing `images` and `labels` folders, and a `classes.txt` file (see YOLO dataset format).
-    * The application will automatically process, split, and prepare the `data.yaml` file.
+    * Prepare your dataset using Label Studio (see installation steps above)
+    * Click "Load Custom Dataset (.zip)" to select your prepared dataset
+    * The application will automatically process and prepare the `data.yaml` file
+
 3.  **🧠 Train:**
-    * Select a base YOLOv8 model (e.g., `yolov8s.pt`).
-    * Set training parameters like epochs, image size.
-    * Choose a project name for your training run.
-    * Click "Start Training". The trained model (`best.pt`) will be saved in `trained_models_gui/`.
-    * Optionally, auto-load the trained model into the Deploy tab.
+    * Select a base YOLOv8 model (e.g., `yolov8s.pt`)
+    * Set training parameters like epochs, image size
+    * Choose a project name for your training run
+    * Click "Start Training". The trained model (`best.pt`) will be saved in `trained_models_gui/`
+    * Optionally, auto-load the trained model into the Deploy tab
+
 4.  **🚀 Deploy:**
-    * Load a trained model (e.g., your custom `best.pt` or other compatible model files).
+    * Load a trained model (e.g., your custom `best.pt` or other compatible model files)
     * **Live Inference:**
-        * Select an available webcam and resolution.
-        * Click "Start Webcam" to begin live detection/segmentation.
+        * Select an available webcam and resolution
+        * Click "Start Webcam" to begin live detection/segmentation
     * **File Inference:**
-        * Click "Load Video/Image File" to run inference on a local media file.
+        * Click "Load Video/Image File" to run inference on a local media file
     * **Model Conversion:**
-        * Select an export format (e.g., ONNX, TFLite).
-        * Click "Convert & Export Model". Exported models are saved in `exported_models_gui/`.
+        * Select an export format (e.g., ONNX, TFLite)
+        * Click "Convert & Export Model". Exported models are saved in `exported_models_gui/`
+
 5.  **⚙️ Settings:**
-    * Install or verify the Ultralytics library.
-    * Select your preferred compute device (CPU or available CUDA GPUs).
-    * Change the UI theme (Light/Dark).
-6.  **ℹ️ About:** Information about VisionCraft Studio.
+    * Install or verify the Ultralytics library
+    * Select your preferred compute device (CPU or available CUDA GPUs)
+    * Change the UI theme (Light/Dark)
+
+6.  **ℹ️ About:** Information about VisionCraft Studio
 
 ### Expected Dataset Structure
 

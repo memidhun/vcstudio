@@ -1117,7 +1117,7 @@ class ModernYoloGUI(QMainWindow):
         self.current_palette_colors = self.dracula_palette  # Initialize with dark theme
 
         self.setWindowTitle(f"VisionCraft Studio v{self.APP_VERSION}")
-        self.setGeometry(50, 50, 1000, 800)
+        self.showMaximized()  # Start in maximized window mode
         self.setWindowIcon(self.get_icon("app_icon", fallback_text=False))
 
         self.dataset_zip_path = None
