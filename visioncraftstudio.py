@@ -1212,12 +1212,22 @@ class ModernYoloGUI(QMainWindow):
         self.toggle_console_visibility_action()
 
     def get_icon(self, name_no_ext, extension=".png", fallback_text=True):
-        icon_path = os.path.join("icons", name_no_ext + extension)
+        # Special case for application icon
+        if name_no_ext == "app_icon":
+            icon_path = os.path.join("assets", "icons", "icon.png")
+            if os.path.exists(icon_path):
+                return QIcon(icon_path)
+            if not fallback_text:
+                self.log(f"Critical Icon missing: {icon_path}")
+            return QIcon()
+
+        # Regular icons from theme folders
+        icon_path = os.path.join("icons", self.current_theme, name_no_ext + extension)
         if os.path.exists(icon_path):
             return QIcon(icon_path)
 
         if not fallback_text:
-            self.log(f"Critical Icon missing: icons/{name_no_ext}{extension}")
+            self.log(f"Critical Icon missing: icons/{self.current_theme}/{name_no_ext}{extension}")
         return QIcon()
 
     def toggle_console_visibility_action(self):
@@ -1241,7 +1251,7 @@ class ModernYoloGUI(QMainWindow):
         nav_layout.setContentsMargins(0, 0, 0, 0)
         nav_layout.setSpacing(0)
 
-        icon_path_base = "icons"  # Relative path
+        icon_path_base = os.path.join("icons", self.current_theme)  # Use current theme
 
         self.nav_buttons_data = [
             {"text": "Home", "icon_name": "home", "page_index": 0},
@@ -2119,7 +2129,9 @@ class ModernYoloGUI(QMainWindow):
                 border-radius: 4px; min-height: 22px; 
             }}
             QComboBox::drop-down {{ border: none; subcontrol-origin: padding; subcontrol-position: top right; width: 15px; }}
-            QComboBox::down-arrow {{ image: url(icons/{self.current_theme}/dropdown_arrow.png); }} 
+            QComboBox::down-arrow {{
+                image: url(icons/{self.current_theme}/dropdown_arrow.png);
+            }}
             QComboBox QAbstractItemView {{ 
                 background-color: {p["input_bg"]}; color: {p["text_color"]};
                 border: 1px solid {p["input_border"]}; 
