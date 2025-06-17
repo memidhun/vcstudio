@@ -2199,8 +2199,7 @@ class ModernYoloGUI(QMainWindow):
                 margin: 0px;
                 padding: 0px;
             }}
-
-            /* Download Button Styling */
+            
             QPushButton#downloadButton {{
                 background-color: {p["button_bg"]};
                 color: {p["button_text"]};
