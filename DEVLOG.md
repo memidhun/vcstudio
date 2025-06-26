@@ -3,7 +3,6 @@
 All notable changes, features, and development notes for VisionCraft Studio will be documented in this file.
 
 ---
-
 ## [v0.1.0] – Initial Public Release
 **Date:** 2024-06-XX
 
