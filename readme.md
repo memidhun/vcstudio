@@ -5,9 +5,9 @@
 [![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green.svg)](https://riverbankcomputing.com/software/pyqt/)
 [![Ultralytics YOLO](https://img.shields.io/badge/Deep%20Learning-YOLO-purple.svg)](https://ultralytics.com/)
 [![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)](https://github.com/memidhun/vcstudio) 
-[![Issues](https://img.shields.io/github/issues/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/issues)
+[![Issues](https://img.shields.io/github/issues/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/issues)
 [![Forks](https://img.shields.io/github/forks/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/network/members) <!-- Replace with your username/repo -->
-[![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/stargazers) <!-- Replace with your username/repo -->
+[![Stars](https://img.shields.io/github/stars/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/stargazers) <!-- Replace with your username/repo -->
 
 <!-- Banner Image -->
 <p align="center">
