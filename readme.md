@@ -8,7 +8,6 @@
 [![Issues](https://img.shields.io/github/issues/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/issues)
 [![Forks](https://img.shields.io/github/forks/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/network/members) <!-- Replace with your username/repo -->
 [![Stars](https://img.shields.io/github/stars/your-username/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/stargazers) <!-- Replace with your username/repo -->
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmemidhun%2Fvcstudio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 <!-- Banner Image -->
 <p align="center">
