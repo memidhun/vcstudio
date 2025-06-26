@@ -9,7 +9,6 @@
 [![Issues](https://img.shields.io/github/issues/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/issues)
 [![Forks](https://img.shields.io/github/forks/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/network/members) <!-- Replace with your username/repo -->
 [![Stars](https://img.shields.io/github/stars/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/stargazers) <!-- Replace with your username/repo -->
--->
 <!-- Banner Image -->
 <p align="center">
   <img src="icons/banner.webp" alt="VisionCraft Studio Banner" width="100%"/>
