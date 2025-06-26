@@ -48,15 +48,9 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
 
 ## 🎬 Demo
 
-<!-- Replace with a GIF or link to a video showcasing the application -->
-**Watch a quick demo of VisionCraft Studio in action:**
-
-[![VisionCraft Studio Demo Video](https://img.shields.io/badge/Demo-Watch%20Video-red?style=for-the-badge&logo=youtube)](https://www.example.com/your_demo_video_link)
-
-<!-- Or embed a GIF -->
-<!-- <p align="center">
-  <img src="link_to_your_demo.gif" alt="VisionCraft Studio Demo GIF" width="700"/>
-</p> -->
+<p align="center">
+  <img src="icons/Demo/Demo.gif" alt="VisionCraft Studio Demo GIF" width="700"/>
+</p>
 
 ## 🌐 View Online!
 
