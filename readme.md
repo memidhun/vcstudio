@@ -6,7 +6,7 @@
 [![Ultralytics YOLO](https://img.shields.io/badge/Deep%20Learning-YOLO-purple.svg)](https://ultralytics.com/)
 [![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)](https://github.com/memidhun/vcstudio) 
 [![Issues](https://img.shields.io/github/issues/memidhun/vcstudio.svg)](https://github.com/memidhun/vcstudio)
-[![Forks](https://img.shields.io/github/forks/memidhun/vision-craft-studio.svg)](https://github.com/memidhun/vcstudio/network/members) <!-- Replace with your username/repo -->
+[![Forks](https://img.shields.io/github/forks/memidhun/vcstudio.svg)](https://github.com/memidhun/vcstudio)
 [![Stars](https://img.shields.io/github/stars/memidhun/vcstudio.svg)](https://github.com/memidhun/vcstudio) <!-- Replace with your username/repo -->
 <!-- Banner Image -->
 <p align="center">
