@@ -54,10 +54,13 @@ VisionCraft Studio is a user-friendly desktop application designed to simplify t
 Experience VisionCraft Studio's interface right in your browser! Visit the web demo to explore the UI and features:
 
 <p align="center">
-  <a href="https://memidhun.github.io/vcstudio/" style="display: block; margin-bottom: 16px;">
-    <img src="https://img.shields.io/badge/Web%20UI-Try%20Now-blue?style=for-the-badge" alt="Web Demo" style="display: block; margin: 0 auto;"/>
+  <img src="icons/Demo/webdemo.png" alt="VisionCraft Studio Home Page" width="600"/>
+</p>
+
+<p align="center">
+  <a href="https://memidhun.github.io/vcstudio/">
+    <img src="https://img.shields.io/badge/Web%20UI-Try%20Now-blue?style=for-the-badge" alt="Web Demo"/>
   </a>
-  <img src="icons/Demo/webdemo.png" alt="VisionCraft Studio Home Page" width="600" style="display: block; margin: 0 auto;"/>
 </p>
 
 *Note: This is a static UI demo showcasing the application's interface. To work with actual datasets, train models, and perform real-time inference, please download and install the full desktop application.*
